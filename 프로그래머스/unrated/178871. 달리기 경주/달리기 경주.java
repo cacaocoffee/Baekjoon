@@ -1,21 +1,21 @@
-import java.util.*;
 class Solution {
     public String[] solution(String[] players, String[] callings) {
-
-        HashMap< String,Integer>  map = new HashMap<>();
-        for(int i = 0; i< players.length; i++)
+       
+        for(int i =0 ; i<callings.length ; i++)
         {
-            map.put(players[i],i);
+            String overtake = callings[i]; 
+            for(int j=0; j<players.length ; j++ )
+            {
+                if(players[j].equals(overtake)){
+                    String temp =players[j-1];
+                    players[j-1]= overtake;
+                    players[j] =temp;
+                    break;
+                }
+            }
         }
-        for(String temp : callings){
-            int grade = map.get(temp);
-            String foreplayer = players[grade-1];
-            players[grade-1]= temp;
-            players[grade]=foreplayer;
-            map.put(foreplayer, grade);
-            map.put(temp, grade-1);
-
-        }
-        return players;
+        String[] answer = players;
+        
+        return answer;
     }
 }
