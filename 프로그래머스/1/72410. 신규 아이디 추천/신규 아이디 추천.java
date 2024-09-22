@@ -6,7 +6,7 @@ class Solution {
         answer = answer.replaceAll("[.]{2,}", "."); // 3단계
         answer = answer.replaceAll("^[.]|[.]$", "");    // 4단계
         
-        if (answer.equals("")) {    // 5단계
+        if (answer.equals("")) {  // 5단계
             answer += "a";
         }
 

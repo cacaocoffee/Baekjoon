@@ -1,10 +1,10 @@
 # [level 1] 신규 아이디 추천 - 72410 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/72410?language=java) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/72410) 
 
 ### 성능 요약
 
-메모리: 76.8 MB, 시간: 20.15 ms
+메모리: 80.7 MB, 시간: 17.86 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 09월 20일 22:41:18
+2024년 09월 22일 16:34:04
 
 ### 문제 설명
 
