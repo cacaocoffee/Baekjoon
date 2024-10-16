@@ -1,11 +1,13 @@
-import java.util.Scanner
-fun main(args: Array<String>){
-    val sc: Scanner = Scanner(System.`in`)
-    var n = sc.nextInt()
-    var f=Array<Long>(n+1,{0})
-    f[1]=1
-    for(i in 2..n){
-        f[i]=f[i-1]+f[i-2]
+import java.util.*
+
+fun main(args: Array<String>) = with(Scanner(System.`in`)) {
+    val a = nextInt()
+    val fibonaci = IntArray(a + 1)
+
+    fibonaci[0]=0
+    fibonaci[1]=1
+    for(i in 2..a){
+        fibonaci[i]= fibonaci[i-1]+fibonaci[i-2]
     }
-    print(f[n])
+    print(fibonaci[a])
 }
