@@ -19,6 +19,6 @@ class Solution {
             }
         }
         
-          return if (answer.isEmpty()) "EMPTY" else answer.toString()
+        return answer
     }
 }
