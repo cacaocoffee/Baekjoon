@@ -1,17 +1,18 @@
-import kotlin.math.*
 
 class Solution {
     fun solution(a: Int, b: Int, c: Int): Int {
-        var answer: Int = 0
-        if(a==b || b==c) {
-            if(a==c){
-                return (a+b+c) *(a.pow(2)+ b.pow(2)+ c.pow(2)) * (a.pow(3)+ b.pow(3)+ c.pow(3))
+        if (a == b || b == c || a == c) {
+            if (a == b && b == c) {
+                return (a + b + c) * 
+                       ((a * a) + (b * b) + (c * c)) * 
+                       ((a * a * a) + (b * b * b) + (c * c * c))
             }
-            else{
-                return (a+b+c) *(a.pow(2)+ b.pow(2)+ c.pow(2)) 
+            else {
+                return (a + b + c) * 
+                       ((a * a) + (b * b) + (c * c))
             }
-            
         }
-        return a+b+c
+
+        return a + b + c
     }
 }
