@@ -4,7 +4,7 @@ fun main() {
 
     repeat(rp) {
         val (a, b) = readLine()!!.split(" ").map { it.toInt() }
-        if (a < b) min = if (min > b) b else min
+        if (a <= b) min = if (min > b) b else min
     }
 
     if (min == 1001) {
