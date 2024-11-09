@@ -7,7 +7,7 @@ fun main(){
     var minPrice = price[0]
     length.forEachIndexed{ index, it ->
         answer += it * minPrice
-        if(price[index+1]< minPrice) minPrice = price[index]
+        if(price[index+1]< minPrice) minPrice = price[index+1]
     }
     print(answer)
 }
