@@ -1,13 +1,17 @@
-fun main(){
-    var num = readLine()!!.toInt()
-    var length =  readLine()!!.split(" ").map{it.toInt()}
-    var price =  readLine()!!.split(" ").map{it.toInt()}
-    
-    var answer = 0 
+fun main() {
+    val num = readLine()!!.toInt()
+    val length = readLine()!!.split(" ").map { it.toLong() }
+    val price = readLine()!!.split(" ").map { it.toLong() }
+
+    var answer = 0L
     var minPrice = price[0]
-    length.forEachIndexed{ index, it ->
-        answer += it * minPrice
-        if(price[index+1]< minPrice) minPrice = price[index+1]
+
+    for (i in 0 until length.size) {
+        if (price[i] < minPrice) {
+            minPrice = price[i]
+        }
+        answer += minPrice * length[i]
     }
-    print(answer)
+
+    println(answer)
 }
