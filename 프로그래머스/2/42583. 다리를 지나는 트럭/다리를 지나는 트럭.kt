@@ -2,32 +2,41 @@ import java.util.LinkedList
 import java.util.Queue
 
 class Solution {
+    data class Truck(
+        var location: Int = 0,
+        val weight: Int
+    ) {
+        fun move() {
+            location++
+        }
+    }
+
     fun solution(bridge_length: Int, weight: Int, truck_weights: IntArray): Int {
-        val bridge: Queue<Int> = LinkedList()
+        val bridge: Queue<Truck> = LinkedList()
         var time = 0
         var currentWeight = 0
         var index = 0
 
-        // 다리 초기화 (빈 자리 0으로)
-        repeat(bridge_length) { bridge.add(0) }
-
-        while (bridge.isNotEmpty()) {
+        while (index < truck_weights.size || bridge.isNotEmpty()) {
             time++
 
-            // 1. 다리에서 트럭 한 칸 내리기
-            currentWeight -= bridge.poll()
+            // 1. 다리 위 트럭 이동
+            bridge.forEach { it.move() }
 
-            // 2. 새 트럭 올릴 수 있는지 확인
-            if (index < truck_weights.size) {
-                val nextTruck = truck_weights[index]
-                if (currentWeight + nextTruck <= weight) {
-                    bridge.add(nextTruck)
-                    currentWeight += nextTruck
-                    index++
-                } else {
-                    // 못 올라가면 빈 자리 (0) 추가
-                    bridge.add(0)
-                }
+            // 2. 다리 끝난 트럭 제거
+            if (bridge.isNotEmpty() && bridge.peek().location > bridge_length) {
+                val finished = bridge.poll()
+                currentWeight -= finished.weight
+            }
+
+            // 3. 새 트럭 올릴 수 있는지 확인
+            if (index < truck_weights.size &&
+                currentWeight + truck_weights[index] <= weight
+            ) {
+                val newTruck = Truck(location = 1, weight = truck_weights[index])
+                bridge.add(newTruck)
+                currentWeight += newTruck.weight
+                index++
             }
         }
 
